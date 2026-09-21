@@ -5355,7 +5355,7 @@ function showBronzeResult(title){
       <div class="rankRibbon bronzeRibbonV54">BRONCE</div>
    </div>
    <div class="unlockLabel">NIVEL DESBLOQUEADO:</div>
-   <div class="guardianTitle">${qaliPlayerName?"¡"+qaliPlayerName.toUpperCase()+" ERES UN APRENDIZ DE LA SEGURIDAD!":"¡ERES UN APRENDIZ DE LA SEGURIDAD!"}</div>
+   <div class="guardianTitle">${qaliPlayerName?"¡"+qaliPlayerName.toUpperCase()+" ERES UN(A) APRENDIZ DE LA SEGURIDAD!":"¡ERES UN(A) APRENDIZ DE LA SEGURIDAD!"}</div>
    <div class="scoreLine">2 / 2 OPORTUNIDADES UTILIZADAS</div>
    <div class="finalTagline">¡Vuelve a intentarlo y conviértete en Guardián del Cuidado!</div>
    <div class="resultBtns">
@@ -5846,6 +5846,24 @@ let seen=false;const o=new MutationObserver(()=>{let r=document.getElementById("
   if(window.visualViewport) window.visualViewport.addEventListener('resize', fitQaliGame, {passive:true});
   document.addEventListener('DOMContentLoaded', fitQaliGame);
   window.addEventListener('load', fitQaliGame);
+})();
+</script>
+
+
+<script id="qali-v25-martina-hard-fix">
+(function(){
+ const fix=()=>{
+   document.querySelectorAll('body *').forEach(el=>{
+     if(el.children.length===0 && el.textContent){
+       let t=el.textContent;
+       let n=t.replace(/Martita/gi,'Martina')
+              .replace(/Caco\s+va\s+a\s+explorar\s+a\s+Martina\.?/gi,'El personal de salud va a explorar a Martina.');
+       if(n!==t) el.textContent=n;
+     }
+   });
+ };
+ new MutationObserver(fix).observe(document.documentElement,{subtree:true,childList:true,characterData:true});
+ document.addEventListener('DOMContentLoaded',fix); setTimeout(fix,0);
 })();
 </script>
 
