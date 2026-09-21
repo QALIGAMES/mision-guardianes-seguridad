@@ -1,0 +1,10 @@
+{
+  "name": "Misión: Guardianes de la Seguridad",
+  "short_name": "Guardianes",
+  "start_url": "./",
+  "scope": "./",
+  "display": "standalone",
+  "background_color": "#ffffff",
+  "theme_color": "#075b57",
+  "orientation": "portrait-primary"
+}
